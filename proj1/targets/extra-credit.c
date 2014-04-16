@@ -7,21 +7,18 @@
 
 int freadline(int fd, char *buf) {
   int i = 0;
+  char next;
   for (;;) {
-    int c = read(fd, &buf[i], 1);
+    int c = read(fd, &next, 1);
     if (c <= 0) {
       break;
     }
 
-    if (buf[i] == '\r') {
-      buf[i] = '\0';
-      continue;
-    }
-
-    if (buf[i] == '\n') {
-      buf[i] = '\0';
+    if (next == '\n') {
       return i;
     }
+
+    buf[i] = next;
 
     i++;
   }
@@ -30,6 +27,8 @@ int freadline(int fd, char *buf) {
 
 int respond_once(int clientfd) {
   char buf[2048];
+
+  printf("test %p", &buf);
 
   int line_len = freadline(clientfd, buf);
   if (line_len <= 0) {

