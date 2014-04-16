@@ -28,8 +28,6 @@ int freadline(int fd, char *buf) {
 int respond_once(int clientfd) {
   char buf[2048];
 
-  printf("test %p", &buf);
-
   int line_len = freadline(clientfd, buf);
   if (line_len <= 0) {
     write(clientfd, "done\r\n", 6);
