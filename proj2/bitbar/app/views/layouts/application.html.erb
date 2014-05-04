@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+      <% if @title %>
+         Bitbar - <%= @title %>
+      <% else %>
+          Bitbar
+      <% end %>
+  </title>
+  
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <% if not @disable_framebusting %>
+      <script>
+      // Imperfect framebusting
+      if(top.location != self.location){
+              parent.location = self.location;
+      }
+      </script>
+  <% end %> 
+</head>
+<body>
+
+<div id="header">
+    <div id="titles">
+        <h1>Bitbar</h1>
+        <h2>The Crypto-Free Crypto Currency</h2>
+    </div>
+    <div id="navbar">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/transfer">Transfer</a></li>
+            <li><a href="/profile">Profile</a></li>
+            
+        </ul>
+    </div>
+</div>
+<div id="main" class="centerpiece">
+<%= yield %>
+</div>
+
+</body>
+</html>

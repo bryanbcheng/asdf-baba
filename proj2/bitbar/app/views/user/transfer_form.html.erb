@@ -1,0 +1,30 @@
+<% @title = "Transfer" %>
+
+<h3>Transfer Bitbars</h3>
+
+<form action="post_transfer" method="post">
+
+	<%= display_error(@error) %>
+
+	<p>
+		You currently have <%= @logged_in_user.bitbars %> bitbars.
+	</p>
+
+	<table>
+		<tr>
+			<td>Transfer To:</td><td>
+			<input type="text" name="destination_username" value="<%= @user%>"/>
+			</td>
+		</tr>
+		<tr>
+			<td>Amount:</td><td>
+			<input type="text" name="quantity" value="<%= @amount%>"/>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<input type="submit" value="Transfer" />
+			</td>
+		</tr>
+	</table>
+</form>

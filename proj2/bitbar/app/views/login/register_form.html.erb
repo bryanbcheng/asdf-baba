@@ -1,0 +1,14 @@
+<% @title = "Register Form" %>
+
+<h3>Register</h3>
+
+<form action="post_register" method="post">
+    
+    <%= display_error(@error) %>
+    
+    <table>
+        <tr><td>Username:</td><td><input type="text" name="username" /></td></tr>
+        <tr><td>Password:</td><td><input type="password" name="password" /></td></tr>
+        <tr><td><input type="submit" value="Register" /></td></tr>
+    </table>
+</form>

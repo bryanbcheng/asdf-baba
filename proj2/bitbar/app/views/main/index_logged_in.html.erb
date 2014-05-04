@@ -1,0 +1,12 @@
+<% @title = "Home" %>
+<h3>Welcome, <%= @logged_in_user.username %>!</h3>
+
+<p>You have <%= @logged_in_user.bitbars %> bitbars.</p>
+
+<p>Your profile:</p>
+<form action="set_profile" method="post">
+    <textarea name="new_profile" rows="8" cols="50"><%= @logged_in_user.profile %></textarea>
+    <p><input type="submit" value="Update profile"></p>
+</form>
+
+<p>Click <a href="logout">here</a> to logout.</p>
