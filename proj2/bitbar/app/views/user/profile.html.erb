@@ -22,9 +22,9 @@
         <div id="profile"><%= sanitize_profile(@user.profile) %></div>
     <% end %>
     
-    <span id="bitbars" class="<%= @user.bitbars %>" />
+    <span id="bitbars" />
     <script type="text/javascript">
-      var total = eval(document.getElementById('bitbars').className);
+      var total = <%= @user.bitbars %>;
       function showBitbars(bitbars) {
         document.getElementById("bitbar_display").innerHTML = bitbars + " bitbars";
         if (bitbars < total) {
