@@ -3,6 +3,7 @@
 <h3>Transfer Bitbars</h3>
 
 <form action="post_transfer" method="post">
+	<input type="hidden" name="csrf_token" value="<%= get_csrf_token %>"/>
 
 	<%= display_error(@error) %>
 

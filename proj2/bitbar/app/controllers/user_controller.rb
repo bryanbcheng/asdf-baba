@@ -29,6 +29,11 @@ class UserController < ApplicationController
     elsif @source_user.bitbars < @quantity
       @error = "You do not have enough bitbars!"
     end
+
+    csrf_token = params[:csrf_token]
+    if csrf_token != get_csrf_token
+      @error = "Invalid CSRF token"
+    end
     
     if @error != ""
       render :transfer_form
