@@ -5,7 +5,9 @@
     
 </form>
 
-<%= display_error(@error) %>
+<%if @error and @error != ""%>
+  <p class='error'><%= h @error %></p>
+<%end%>
     
 <% if @user %>
     <% if @user == @logged_in_user then %>

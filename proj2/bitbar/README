@@ -1,0 +1,19 @@
+a)
+Escaping HTML tag characters when printing user content using the utility method h()
+
+b)
+CSRF token- include in transfer form view
+On receiving form, check if it matches the one we have in session. if it does, clear
+
+c)
+Framebusting code in application.html.erb modified
+Taken from http://seclab.stanford.edu/websec/framebusting/framebust.pdf
+
+d) 
+Removed dangerous eval
+Operating under assumption that client will not have diff CSS styling based on diff number of bitbars
+Alternative could have been to add "class" as additional tag for sanitizing
+
+e)
+Similar to a
+Also had to wrap around with quotes
