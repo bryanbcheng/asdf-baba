@@ -1,23 +1,25 @@
 a)
-Escaping HTML tag characters when printing user content using the utility method h()
+Escaping HTML tag characters when printing user content using the utility method h(). User's injected <script>s in the string are displayed for what they are in the error messages. 
+The changes can be found in views/user/profile.html.erb.
 
 b)
 CSRF token- include in transfer form view (assumption we don't need to defend again XSS attacks).
-
 When the user navigates to the transfer page, the form includes a hidden input field that stores a secret validation token. We calculated this token my computing the HMAC of the current session id with a secret key that is only stored in the server.
-
 On the post transfer page, we check to make sure that the hidden token received as a parameter matches a recomputed HMAC of the session id. If it does, we proceed with the transfer otherwise we cancel the transfer.
+The changes can be found in controllers/application_controller.rb, views/user/transfer_form.html.erb, and controllers/user_controller.rb.
 
 c)
 Framebusting code in application.html.erb modified
 Taken from http://seclab.stanford.edu/websec/framebusting/framebust.pdf
+The changes are in application.html.erb.
 
 d) 
 We removed dangerous eval and to keep the behavior the same, moved the escaped number of bitbars from the classname directly into the Javascript so that the attacker has no way to executing his own Javascript via the eval command that was previously in the script.
 
 Operating under assumption that client will not have diff CSS styling based on diff number of bitbars
 Alternative could have been to add "class" as additional tag for sanitizing. However, this becomes unnecessary once we have removed the Javascript code that evaluated on #bitbars's classname.
+Changes can be found in views/user/profile.html.erb.
 
 e)
-Similar to a
-Also had to wrap around with quotes
+Very similar to the defense against attack A. Also included quotes around the username value before escape the text that goes inside.
+Changes are in views/login/login_form.html.erb
