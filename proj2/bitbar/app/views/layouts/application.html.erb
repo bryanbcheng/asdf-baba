@@ -10,20 +10,6 @@
   </title>
   
   <%= stylesheet_link_tag    "application", media: "all" %>
-  <% if not @disable_framebusting%>
-  
-    <style>
-      body { display:none;}
-    </style>
-    <script>
-    if (self == top) {
-      document.getElementsByTagName("body")[0].style.display = 'block';    
-    } else {
-      top.location = self.location
-    }
-    </script>
-
-  <% end %> 
 </head>
 <body>
 
@@ -46,4 +32,18 @@
 </div>
 
 </body>
+
+  <% if not @disable_framebusting%>
+    <style>
+      body { display:none;}
+    </style>
+    <script>
+    if (self == top) {
+      document.getElementsByTagName("body")[0].style.display = 'block';    
+    } else {
+      top.location = self.location
+    }
+    </script>
+  <% end %> 
+
 </html>
