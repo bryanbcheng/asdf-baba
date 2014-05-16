@@ -2,17 +2,21 @@ a)
 Escaping HTML tag characters when printing user content using the utility method h()
 
 b)
-CSRF token- include in transfer form view
-On receiving form, check if it matches the one we have in session. if it does, clear
+CSRF token- include in transfer form view (assumption we don't need to defend again XSS attacks).
+
+When the user navigates to the transfer page, the form includes a hidden input field that stores a secret validation token. We calculated this token my computing the HMAC of the current session id with a secret key that is only stored in the server.
+
+On the post transfer page, we check to make sure that the hidden token received as a parameter matches a recomputed HMAC of the session id. If it does, we proceed with the transfer otherwise we cancel the transfer.
 
 c)
 Framebusting code in application.html.erb modified
 Taken from http://seclab.stanford.edu/websec/framebusting/framebust.pdf
 
 d) 
-Removed dangerous eval
+We removed dangerous eval and to keep the behavior the same, moved the escaped number of bitbars from the classname directly into the Javascript so that the attacker has no way to executing his own Javascript via the eval command that was previously in the script.
+
 Operating under assumption that client will not have diff CSS styling based on diff number of bitbars
-Alternative could have been to add "class" as additional tag for sanitizing
+Alternative could have been to add "class" as additional tag for sanitizing. However, this becomes unnecessary once we have removed the Javascript code that evaluated on #bitbars's classname.
 
 e)
 Similar to a
