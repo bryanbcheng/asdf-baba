@@ -1,0 +1,105 @@
+res/layout/activity_main.xml
+res/menu/main.xml
+AndroidManifest.xml
+resources.arsc
+res/drawable-hdpi/ic_launcher.png
+res/drawable-mdpi/ic_launcher.png
+res/drawable-xhdpi/ic_launcher.png
+res/drawable-xxhdpi/ic_launcher.png
+classes.dex
+META-INF/MANIFEST.MF
+META-INF/CERT.SF
+META-INF/CERT.RSA
+
+Resource table:
+Package Groups (1)
+Package Group 0 id=127 packageCount=1 name=com.cs155.trustedapp
+  Package 0 id=127 name=com.cs155.trustedapp typeCount=8
+    type 0 configCount=0 entryCount=0
+    type 1 configCount=4 entryCount=1
+      spec resource 0x7f020000 com.cs155.trustedapp:drawable/ic_launcher: flags=0x00000100
+      config mdpi-v4:
+        resource 0x7f020000 com.cs155.trustedapp:drawable/ic_launcher: t=0x03 d=0x00000002 (s=0x0008 r=0x00)
+      config hdpi-v4:
+        resource 0x7f020000 com.cs155.trustedapp:drawable/ic_launcher: t=0x03 d=0x00000003 (s=0x0008 r=0x00)
+      config xhdpi-v4:
+        resource 0x7f020000 com.cs155.trustedapp:drawable/ic_launcher: t=0x03 d=0x00000004 (s=0x0008 r=0x00)
+      config xxhdpi-v4:
+        resource 0x7f020000 com.cs155.trustedapp:drawable/ic_launcher: t=0x03 d=0x00000005 (s=0x0008 r=0x00)
+    type 2 configCount=1 entryCount=1
+      spec resource 0x7f030000 com.cs155.trustedapp:layout/activity_main: flags=0x00000000
+      config (default):
+        resource 0x7f030000 com.cs155.trustedapp:layout/activity_main: t=0x03 d=0x00000000 (s=0x0008 r=0x00)
+    type 3 configCount=2 entryCount=2
+      spec resource 0x7f040000 com.cs155.trustedapp:dimen/activity_horizontal_margin: flags=0x00002480
+      spec resource 0x7f040001 com.cs155.trustedapp:dimen/activity_vertical_margin: flags=0x00000000
+      config (default):
+        resource 0x7f040000 com.cs155.trustedapp:dimen/activity_horizontal_margin: t=0x05 d=0x00001001 (s=0x0008 r=0x00)
+        resource 0x7f040001 com.cs155.trustedapp:dimen/activity_vertical_margin: t=0x05 d=0x00001001 (s=0x0008 r=0x00)
+      config sw720dp-land-v13:
+        resource 0x7f040000 com.cs155.trustedapp:dimen/activity_horizontal_margin: t=0x05 d=0x00008001 (s=0x0008 r=0x00)
+    type 4 configCount=1 entryCount=3
+      spec resource 0x7f050000 com.cs155.trustedapp:string/app_name: flags=0x00000000
+      spec resource 0x7f050001 com.cs155.trustedapp:string/action_settings: flags=0x00000000
+      spec resource 0x7f050002 com.cs155.trustedapp:string/hello_world: flags=0x00000000
+      config (default):
+        resource 0x7f050000 com.cs155.trustedapp:string/app_name: t=0x03 d=0x00000006 (s=0x0008 r=0x00)
+        resource 0x7f050001 com.cs155.trustedapp:string/action_settings: t=0x03 d=0x00000007 (s=0x0008 r=0x00)
+        resource 0x7f050002 com.cs155.trustedapp:string/hello_world: t=0x03 d=0x00000008 (s=0x0008 r=0x00)
+    type 5 configCount=3 entryCount=2
+      spec resource 0x7f060000 com.cs155.trustedapp:style/AppBaseTheme: flags=0x00000400
+      spec resource 0x7f060001 com.cs155.trustedapp:style/AppTheme: flags=0x00000000
+      config (default):
+        resource 0x7f060000 com.cs155.trustedapp:style/AppBaseTheme: <bag>
+        resource 0x7f060001 com.cs155.trustedapp:style/AppTheme: <bag>
+      config v11:
+        resource 0x7f060000 com.cs155.trustedapp:style/AppBaseTheme: <bag>
+      config v14:
+        resource 0x7f060000 com.cs155.trustedapp:style/AppBaseTheme: <bag>
+    type 6 configCount=1 entryCount=1
+      spec resource 0x7f070000 com.cs155.trustedapp:menu/main: flags=0x00000000
+      config (default):
+        resource 0x7f070000 com.cs155.trustedapp:menu/main: t=0x03 d=0x00000001 (s=0x0008 r=0x00)
+    type 7 configCount=1 entryCount=4
+      spec resource 0x7f080000 com.cs155.trustedapp:id/textView1: flags=0x00000000
+      spec resource 0x7f080001 com.cs155.trustedapp:id/btn_read_contacts: flags=0x00000000
+      spec resource 0x7f080002 com.cs155.trustedapp:id/text_view_contacts: flags=0x00000000
+      spec resource 0x7f080003 com.cs155.trustedapp:id/action_settings: flags=0x00000000
+      config (default):
+        resource 0x7f080000 com.cs155.trustedapp:id/textView1: t=0x12 d=0x00000000 (s=0x0008 r=0x00)
+        resource 0x7f080001 com.cs155.trustedapp:id/btn_read_contacts: t=0x12 d=0x00000000 (s=0x0008 r=0x00)
+        resource 0x7f080002 com.cs155.trustedapp:id/text_view_contacts: t=0x12 d=0x00000000 (s=0x0008 r=0x00)
+        resource 0x7f080003 com.cs155.trustedapp:id/action_settings: t=0x12 d=0x00000000 (s=0x0008 r=0x00)
+
+Android manifest:
+N: android=http://schemas.android.com/apk/res/android
+  E: manifest (line=2)
+    A: android:versionCode(0x0101021b)=(type 0x10)0x1
+    A: android:versionName(0x0101021c)="1.0" (Raw: "1.0")
+    A: package="com.cs155.trustedapp" (Raw: "com.cs155.trustedapp")
+    E: uses-sdk (line=7)
+      A: android:minSdkVersion(0x0101020c)=(type 0x10)0x8
+      A: android:targetSdkVersion(0x01010270)=(type 0x10)0x11
+    E: uses-permission (line=10)
+      A: android:name(0x01010003)="android.permission.READ_CONTACTS" (Raw: "android.permission.READ_CONTACTS")
+    E: uses-permission (line=11)
+      A: android:name(0x01010003)="android.permission.SEND_SMS" (Raw: "android.permission.SEND_SMS")
+    E: application (line=13)
+      A: android:theme(0x01010000)=@0x7f060001
+      A: android:label(0x01010001)=@0x7f050000
+      A: android:icon(0x01010002)=@0x7f020000
+      A: android:debuggable(0x0101000f)=(type 0x12)0xffffffff
+      A: android:allowBackup(0x01010280)=(type 0x12)0xffffffff
+      E: activity (line=18)
+        A: android:label(0x01010001)=@0x7f050000
+        A: android:name(0x01010003)="com.cs155.trustedapp.MainActivity" (Raw: "com.cs155.trustedapp.MainActivity")
+        E: intent-filter (line=21)
+          E: action (line=22)
+            A: android:name(0x01010003)="android.intent.action.MAIN" (Raw: "android.intent.action.MAIN")
+          E: category (line=24)
+            A: android:name(0x01010003)="android.intent.category.LAUNCHER" (Raw: "android.intent.category.LAUNCHER")
+      E: service (line=27)
+        A: android:name(0x01010003)="ReadContactsService" (Raw: "ReadContactsService")
+        E: intent-filter (line=27)
+          E: action (line=28)
+            A: android:name(0x01010003)="com.cs155.trustedapp.ReadContactsService" (Raw: "com.cs155.trustedapp.ReadContactsService")
