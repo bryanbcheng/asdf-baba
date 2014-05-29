@@ -1,0 +1,12 @@
+Bug in strcmp - if paramString1 has length of 0, always returns true
+
+  private boolean strcmp(String paramString1, String paramString2)
+  {
+    for (int i = 0; ; i++)
+    {
+      if ((i >= paramString1.length()) || (i >= paramString2.length()))
+        return true;
+      if (paramString1.charAt(i) != paramString2.charAt(i))
+        return false;
+    }
+  }
