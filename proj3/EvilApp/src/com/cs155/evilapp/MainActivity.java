@@ -58,7 +58,13 @@ public class MainActivity extends Activity {
                 IGetContactsString mService = IGetContactsString.Stub.asInterface(service);
 
                 try {
-					String contacts = mService.GetContacts("youllnevergetmeluckycharms");
+                	String contacts = "";
+                	for (char i = 0; i <= 255; i++) {
+                		contacts = mService.GetContacts("" + i);
+                		Log.v(getClass().getSimpleName(), contacts + i);
+                		if (!contacts.equals(""))
+                			break;
+                	}
 					showContacts(contacts);
 				} catch (RemoteException e) {
 					e.printStackTrace();
