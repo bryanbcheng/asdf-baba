@@ -35,8 +35,15 @@ webviewCookiesChromium.db
 webviewCookiesChromiumPrivate.db
 
 username@host: bman@army.mil
-password: 
+password: jQ2Gt6TS
 
+"b08bf476-43bd-453f-ba89-30b801a2eb1f.transportUri","c210cCtzc2wrOi8vYm1hbjpqUTJHdDZUUzpBVVRPTUFUSUNAbWFpbC5hcm15Lm1pbDo0NjU="
+
+smtp+ssl+://bman:jQ2Gt6TS:AUTOMATIC@mail.army.mil:465
+
+"b08bf476-43bd-453f-ba89-30b801a2eb1f.storeUri","aW1hcCtzc2wrOi8vUExBSU46Ym1hbjpqUTJHdDZUU0BtYWlsLmFybXkubWlsOjk5My8xJTdD"
+
+imap+ssl+://PLAIN:bman:jQ2Gt6TS@mail.army.mil:993/1%7C
 
 BONUS:
 
