@@ -60,7 +60,6 @@ public class MainActivity extends Activity {
                 	String contacts = "";
                 	for (char i = 0; i <= 255; i++) {
                 		contacts = mService.GetContacts("" + i);
-                		Log.v(getClass().getSimpleName(), contacts + i);
                 		if (!contacts.equals(""))
                 			break;
                 	}
